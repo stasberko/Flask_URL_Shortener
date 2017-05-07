@@ -14,7 +14,9 @@
 {% endif %}
 <hr>
 {% for url in url_dct %}
-    <h3>{{ url }} : {{url_dct[url]}}</h3>
+    <h4><a href="{{url_dct[url]}}">{{url_dct[url]}}</a>:
+        <a href="http://127.0.0.1:5000/brk_app/{{url}}">localhost:5000/brk_app/{{url}}</a>
+    </h4>
 {% endfor  %}
 
 </body>

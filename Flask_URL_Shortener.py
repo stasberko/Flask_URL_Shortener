@@ -1,9 +1,9 @@
 from flask import Flask, request, render_template, redirect, url_for
 import random
+import validators
 
 
 app = Flask(__name__)
-res = None
 url_dct = {}
 
 
@@ -17,9 +17,11 @@ def index():
 
 @app.route('/res/', methods=["POST"])
 def shorter():
-    global res
-    if request.form["url"]:
-        res = rand_str(request.form["url"])
+    res = None
+    url = request.form["url"]
+    if url:
+        if validators.url(url):
+            res = rand_str(url)
     else:
         res = None
     return redirect(url_for("index", post_red=res))

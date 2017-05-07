@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="{{ url_for("shorter")}}" method="POST">
+    <input type="text" name="url"> </input>
+    <input type="submit" value="Ok"> </input>
+</form>
+{% if shr_url %}
+    <a href="http://127.0.0.1:5000/brk_app/{{shr_url}}"><h3>localhost:5000/brk_app/{{shr_url}}</h3></a>
+{% endif %}
+<hr>
+{% for url in url_dct %}
+    <h3>{{ url }} : {{url_dct[url]}}</h3>
+{% endfor  %}
+
+</body>
+</html>
